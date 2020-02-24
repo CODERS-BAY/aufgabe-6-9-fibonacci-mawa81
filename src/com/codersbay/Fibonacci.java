@@ -7,12 +7,25 @@ public class Fibonacci {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        Integer n = scan.nextInt();
-        System.out.println(getNthFibonacci(n));
 
+        while (true) {
+            System.out.println("Bitte gib eine Zahl für die n-te Stelle der Fibonaccireihe ein!");
+
+            if (scan.hasNextLong()) {
+                System.out.println("Hier kommt die Fibonaccireihe bis zu deiner Stelle:");
+                Long n = scan.nextLong();
+                for (int i = 0; i < n; i++) {
+                    System.out.printf("n = %d: %d \n", i, getNthFibonacci(i));
+
+                }
+            } else {
+                scan.next();
+                System.out.println("Falsche Eingabe!");
+            }
+        }
     }
 
-    private static Integer getNthFibonacci(int n) {
+    private static long getNthFibonacci(long n) {
         if (n == 0) {
             return 0;
         } else if (n == 1) {
